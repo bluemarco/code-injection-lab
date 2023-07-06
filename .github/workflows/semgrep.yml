@@ -1,7 +1,7 @@
   name: Semgrep
   on:
     push:
-      branches: ["main", "develop"]
+      branches: ["main"]
   jobs:
     semgrep:
       name: semgrep/ci
