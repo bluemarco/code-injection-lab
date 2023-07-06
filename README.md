@@ -1,2 +1,2 @@
-# code-injection-lab
+# Code Injection Lab
 Eval is evil
