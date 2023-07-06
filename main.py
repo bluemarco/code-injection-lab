@@ -35,6 +35,11 @@ def give_reward() -> str:
 
 
 @app.get("/")
+def index():
+    return "Code Injection Lab"
+
+
+@app.get("/guess")
 def guess(payload: str):
     response = {
         "msg": eval(f"guess_the_number({payload})")
