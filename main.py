@@ -1,32 +1,38 @@
 from fastapi import FastAPI
-from uuid import uuid4
+from os import environ
 
 app = FastAPI()
 
 status: str = ""
+winner: bool = False
 
 
-def set_status(stat: str) -> None:
-    global status
-    status = stat
+def set_winner():
+    global winner
+    winner = True
 
 
 def guess_the_number(num: int) -> str:
+    global status
+    global winner
+
+    winner = False
     stat: str = "incorrect"
-    if num == int(uuid4()):
+
+    if num == int(environ['MAGIC_NUMBER']):
         stat = "correct"
     else:
         stat = "incorrect"
 
-    set_status(stat)
-    return stat
+    status = stat
+    return status
 
 
 def give_reward() -> str:
     reward: float = 10_000_000.0
     global status
 
-    if status == "correct":
+    if status == "correct" and winner:
         return f"Congrats! You won {str(reward)}."
     elif status == "incorrect":
         return "Please try again. Thank you for playing."
