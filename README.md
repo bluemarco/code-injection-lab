@@ -3,9 +3,8 @@ Guess the correct number and find a way to trick the app to win the game. Send a
 
 ### Setup
 To start the challenge server run the following commands:
-```shell
+```console
 $ docker build -t code-injection-lab . # Build the image
-$
 $ docker run -p 80:80 code-injection-lab # Start the server
 INFO:     Started server process [1]
 INFO:     Waiting for application startup.
